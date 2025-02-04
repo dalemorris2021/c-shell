@@ -4,7 +4,7 @@ BUILD = build
 BIN = $(BUILD)/bin
 OBJ = $(BUILD)/obj
 
-OBJS = $(OBJ)/main.o
+OBJS = $(OBJ)/main.o $(OBJ)/shell.o
 
 CC = clang
 RM = rm -f
@@ -24,6 +24,9 @@ $(BIN)/shell: $(OBJS)
 
 $(OBJ)/main.o: $(SRC)/main.c
 	$(CC) $(CPPFLAGS) $(CFLAGS) -c -o $(OBJ)/main.o $(SRC)/main.c
+
+$(OBJ)/shell.o: $(SRC)/shell.c
+	$(CC) $(CPPFLAGS) $(CFLAGS) -c -o $(OBJ)/shell.o $(SRC)/shell.c
 
 clean:
 	$(RM) $(OBJ)/*
