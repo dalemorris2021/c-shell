@@ -1,5 +1,6 @@
 #include <getopt.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 #include "shell.h"
 
@@ -17,11 +18,11 @@ int main(int argc, char **argv) {
         case 'v':
         case 'V':
             printf("%s\n", versionMessage);
-            return 0;
+            exit(EXIT_SUCCESS);
         case 'h':
         case 'H':
             printf("%s\n", usageMessage);
-            return 0;
+            exit(EXIT_SUCCESS);
         case 'i':
             config->inFile = fopen(optarg, "r");
             if (!config->inFile) {
@@ -30,10 +31,10 @@ int main(int argc, char **argv) {
             break;
         case ':':
             fprintf(stderr, "%s\n", usageMessage);
-            return 1;
+            exit(EXIT_FAILURE);
         case '?':
             fprintf(stderr, "Unknown option: %c\n", optopt);
-            return 1;
+            exit(EXIT_FAILURE);
         }
     }
 
@@ -41,5 +42,5 @@ int main(int argc, char **argv) {
 
     Config_destroy(config);
 
-    return 0;
+    exit(EXIT_SUCCESS);
 }
