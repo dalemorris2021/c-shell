@@ -4,7 +4,7 @@
 #include "shell.h"
 
 int main(int argc, char **argv) {
-    const char *versionMessage = "v0.0.1";
+    const char *versionMessage = "v0.1.0";
     const char *usageMessage = "Usage: shell [-i input-file]";
     const char *fileMessage = "Couldn't open file";
 
@@ -38,10 +38,6 @@ int main(int argc, char **argv) {
     }
 
     Shell_run(config);
-
-    if (config->inFile != stdin) {
-        fclose(config->inFile);
-    }
 
     Config_destroy(config);
 
