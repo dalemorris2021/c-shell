@@ -1,4 +1,4 @@
-# shell
+# c-shell
 
 A C implementation of the Flintstone Disk Project.
 
