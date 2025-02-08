@@ -1,6 +1,6 @@
 # shell
 
-A shell for the Flintstone Disk Project.
+A C implementation of the Flintstone Disk Project.
 
 ## Build
 
